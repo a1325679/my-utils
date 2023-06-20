@@ -18,7 +18,6 @@ public:
   int ReadALine(std::string& str); //读一行字符
   int WriteAChr(char c);
   int WriteALine(std::string str);
-
   char ReadAChr();
   std::string ReadALine();
 private:

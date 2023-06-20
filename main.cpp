@@ -1,10 +1,11 @@
 #include <iostream>
-#include "file_operator.h"
+#include "common.h"
 int main()
 {
-  char c;
-  std::string s;
-  MyFile a("../readfile", std::ios::in);
-  a.ReadALine(s);
-  std::cout<<s<<std::endl;
+  std::string str = "aaa bbb ccc ddd eee fff";
+  std::vector<std::string> a = split(str, ' ');
+  for (auto &item : a)
+  {
+    std::cout << item << std::endl;
+  }
 }
