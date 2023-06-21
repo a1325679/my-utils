@@ -98,7 +98,27 @@ int MyFile::WriteALine(std::string str)
   }
   return 1;
 }
-
+std::string MyFile::ReadAWord(std::string split_str)
+{
+  std::string str;
+  if (!io_.is_open())
+  {
+    printf("文件并未打开 %s:%d\n", __func__, __LINE__);
+    return str;
+  }
+  if (io_.eof())
+  {
+    printf("文件已读到结尾\n");
+    return str;
+  }
+  getline(io_, str, ' '); // 读取一个单词，以空格作为分隔符
+  if (io_.bad() | io_.fail())
+  {
+    printf("文件读取出现错误\n");
+    return str;
+  }
+  return str;
+}
 int MyFile::OpenFile(std::string file_name, std::ios_base::openmode mode)
 {
   if (io_.is_open())
